@@ -7,7 +7,9 @@
                 <article class="w-full border-2 rounded-lg">
                     <div class="p-2">
                         <h2 class="text-xl font-medium text-slate-700 hover:underline"><a href="/posts/{{ $post->slug }}">{{ $post->title }}</a></h2>
-                        <p class="text-base text-slate-700">{{ $post->excerpt }}</p>
+                        <p class="text-xs font-light">By. Saputra in <a href="/categories/{{ $post->category->slug }}" class="underline">{{ $post->category->name }}</a></p>
+                        <p class="mt-5 text-base text-slate-700">{{ $post->excerpt }}</p>
+                        <p class="mt-5 underline"><a href="/posts/{{ $post->slug }}">Read more...</a></p>
                     </div>
                 </article>
             @endforeach
