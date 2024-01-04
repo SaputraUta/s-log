@@ -12,8 +12,8 @@ class PostController extends Controller
         return view('blog', ["title" => "Blog", "posts" => Post::all()]);
     }
 
-    public function getDetail($slug)
+    public function getDetail(Post $post)
     {
-        return view('post', ["title" => "Single post", "post" => Post::find($slug)]);
+        return view('post', ["title" => "Single post", "post" => $post]);
     }
 }
