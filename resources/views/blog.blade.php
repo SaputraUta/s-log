@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @section('container')
     <div class="mx-20">
-        <h3 class="text-2xl font-bold text-slate-700">Posts</h3>
+        <h3 class="text-2xl font-bold text-slate-700">{{ $title }}</h3>
         <div class="my-5 flex flex-col gap-5 w-full">
             @foreach ($posts as $post)
                 <article class="w-full border-2 rounded-lg">
