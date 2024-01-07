@@ -20,7 +20,7 @@ class PostController extends Controller
             $user = User::firstWhere('username', request('user'));
             $title = ' by ' . $user->name;
         }
-        return view('blog', ["title" => "All Posts" . $title, "posts" => Post::latest()->filter(request(['search', 'category', 'user']))->get()]);
+        return view('blog', ["title" => "All Posts" . $title, "posts" => Post::latest()->filter(request(['search', 'category', 'user']))->paginate(5)->withQueryString()]);
     }
 
     public function getDetail(Post $post)

@@ -57,5 +57,7 @@
     </div>
 @else
     <p class="text-center font-bold text-slate-700 mt-5">No post found.</p>
-    @endif
+@endif
+
+{{ $posts->links() }}
 @endsection
