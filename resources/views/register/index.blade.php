@@ -1,5 +1,13 @@
-@extends('layouts.main')
-@section('container')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Register page</title>
+    @vite('resources/css/app.css')
+</head>
+<body class="bg-slate-100 min-h-screen flex flex-col justify-center">
     <h2 class="text-2xl font-bold tracking-wide text-center">Registration Form</h2>
     <main class="flex flex-col items-center justify-center mt-10">
         <form action="/register" method="post" class="max-w-xl flex flex-col w-full">
@@ -41,5 +49,6 @@
             <small class="block text-center mt-2 text-base">Already have an account? <a href="/login"
                     class="underline">login here</a></small>
         </form>
-    </main>
-@endsection
+    </main> 
+</body>
+</html>

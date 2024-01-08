@@ -6,20 +6,37 @@
     <nav>
         <ul class="list-none flex items-center gap-16">
             <li class="hover:scale-105">
-                <a href="/" class="{{ ($title === "Home") ? "text-slate-700": "text-slate-500"}} text-lg font-medium hover:underline">Home</a>
+                <a href="/"
+                    class="{{ $title === 'Home' ? 'text-slate-700' : 'text-slate-500' }} text-lg font-medium hover:underline">Home</a>
             </li>
             <li class="hover:scale-105">
-                <a href="/about" class="{{ ($title === "About") ? "text-slate-700": "text-slate-500"}} text-lg font-medium hover:underline">About me</a>
+                <a href="/about"
+                    class="{{ $title === 'About' ? 'text-slate-700' : 'text-slate-500' }} text-lg font-medium hover:underline">About
+                    me</a>
             </li>
             <li class="hover:scale-105">
-                <a href="/blog" class="{{ ($title === "Blog") ? "text-slate-700": "text-slate-500"}} text-lg font-medium hover:underline">My blog</a>
+                <a href="/blog"
+                    class="{{ $title === 'Blog' ? 'text-slate-700' : 'text-slate-500' }} text-lg font-medium hover:underline">My
+                    blog</a>
             </li>
             <li class="hover:scale-105">
-                <a href="/categories" class="{{ ($title === "Post Categories") ? "text-slate-700": "text-slate-500"}} text-lg font-medium hover:underline">Categories</a>
+                <a href="/categories"
+                    class="{{ $title === 'Post Categories' ? 'text-slate-700' : 'text-slate-500' }} text-lg font-medium hover:underline">Categories</a>
             </li>
-            <li class="hover:scale-105">
-                <a href="/login" class="{{ ($title === "Login") ? "text-slate-700": "text-slate-500"}} text-lg font-medium hover:underline">Get Started</a>
-            </li>
+            @auth
+                <li class="hover:scale-105">
+                    <form action="/logout" method="post">
+                        @csrf
+                        <button type="submit"><p class="text-slate-500 text-lg font-medium hover:underline">Logout</p></button>
+                    </form>
+                </li>
+            @else
+                <li class="hover:scale-105">
+                    <a href="/login"
+                        class="{{ $title === 'Login' ? 'text-slate-700' : 'text-slate-500' }} text-lg font-medium hover:underline">Get
+                        Started</a>
+                </li>
+            @endauth
         </ul>
     </nav>
 </div>
