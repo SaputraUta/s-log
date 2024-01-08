@@ -1,5 +1,10 @@
 @extends('layouts.main')
 @section('container')
+    @if (session()->has('success'))
+    <small class="block text-center text-lg text-green-500 tracking-wider">
+        {{ session('success') }}
+    </small>
+    @endif
     <h2 class="text-2xl font-bold tracking-wide text-center">Please Login First</h2>
     <main class="flex flex-col items-center justify-center mt-10">
         <form action="" class="max-w-xl flex flex-col w-full">
