@@ -17,6 +17,9 @@
             <li class="hover:scale-105">
                 <a href="/categories" class="{{ ($title === "Post Categories") ? "text-slate-700": "text-slate-500"}} text-lg font-medium hover:underline">Categories</a>
             </li>
+            <li class="hover:scale-105">
+                <a href="/login" class="{{ ($title === "Login") ? "text-slate-700": "text-slate-500"}} text-lg font-medium hover:underline">Get Started</a>
+            </li>
         </ul>
     </nav>
 </div>
