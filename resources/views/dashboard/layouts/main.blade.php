@@ -12,9 +12,9 @@
 
 <body>
     @include('dashboard.layouts.header')
-    <div class="flex min-h-screen w-full">
+    <div class="flex h-screen w-full">
         @include('dashboard.layouts.sidebar')
-        <main class="flex-1 w-full flex flex-col">
+        <main class="flex-1 w-full flex flex-col mt-10">
             @yield('container')
         </main>
     </div>

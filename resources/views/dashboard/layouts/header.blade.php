@@ -1,4 +1,4 @@
-<header class="flex justify-between w-full">
+<header class="flex justify-between w-full fixed z-10">
     <div class="bg-slate-900 p-4  w-64">
         <h2 class="text-2xl font-semibold tracking-widest text-slate-100">Saputra's Blog</h2>
     </div>
