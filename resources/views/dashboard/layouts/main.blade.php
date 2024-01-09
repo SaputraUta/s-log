@@ -2,19 +2,26 @@
 <html lang="en">
 
 <head>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.8/dist/trix.css">
+    <script type="text/javascript" src="https://unpkg.com/trix@2.0.8/dist/trix.umd.min.js"></script>
+    <script type="text/javascript" src="/js/trix.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Saputra's blog | Dashboard</title>
     @vite('resources/css/app.css')
+    <style>
+        trix-toolbar [data-trix-button-group = "file-tools"] {
+            display: none;
+        }
+    </style>
 </head>
 
 <body>
     @include('dashboard.layouts.header')
-    <div class="flex h-screen w-full">
+    <div class="flex min-h-screen w-full">
         @include('dashboard.layouts.sidebar')
-        <main class="flex-1 w-full flex flex-col mt-10">
+        <main class="flex-1 w-full flex flex-col mt-10 mb-10">
             @yield('container')
         </main>
     </div>
@@ -56,6 +63,10 @@
                 $('#logoutModal').addClass('hidden');
             });
         });
+
+        document.addEventListener('trix-file-accept', function(e){
+            e.preventDefault();
+        })
     </script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
 </body>
