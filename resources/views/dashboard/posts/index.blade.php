@@ -26,19 +26,24 @@
                             <td class="py-2 px-4 border-b">{{ $post->title }}</td>
                             <td class="py-2 px-4 border-b">{{ $post->category->name }}</td>
                             <td
-                                class="py-2 px-4 flex flex-col items-center justify-center sm:flex-row gap-5 sm:gap-5 w-full">
+                                class="py-2 px-4 flex flex-col justify-center sm:flex-row gap-5 sm:gap-5 w-full">
                                 <a href="/dashboard/posts/{{ $post->slug }}"
                                     class="text-slate-700 hover:text-slate-500 transition duration-300 border-b sm:border-b-0">
                                     @include('feather::eye')
                                 </a>
-                                <a href="#"
+                                <a href="/dashboard/posts/{{ $post->slug }}/edit"
                                     class="text-slate-700 hover:text-slate-500 transition duration-300 border-b sm:border-b-0">
                                     @include('feather::edit')
                                 </a>
-                                <a href="#"
-                                    class="text-slate-700 hover:text-slate-500 transition duration-300 border-b sm:border-b-0">
-                                    @include('feather::x-circle')
-                                </a>
+                                <form action="/dashboard/posts/{{ $post->slug }}" method="post">
+                                    @method('delete')
+                                    @csrf
+                                    <button type="submit"
+                                        onclick="return confirm('Are you sure want to delete this post?')"
+                                        class="text-slate-700 hover:text-slate-500 transition duration-300 border-b sm:border-b-0">
+                                        @include('feather::x-circle')
+                                    </button>
+                                </form>
                             </td>
                         </tr>
                     @endforeach
