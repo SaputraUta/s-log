@@ -7,22 +7,16 @@
          <ul class="list-none flex items-center gap-16">
              <li class="hover:scale-105">
                  <a href="/"
-                     class="{{ $title === 'Home' ? 'text-slate-700' : 'text-slate-500' }} text-lg font-medium hover:underline">Home</a>
-             </li>
-             <li class="hover:scale-105">
-                 <a href="/about"
-                     class="{{ $title === 'About' ? 'text-slate-700' : 'text-slate-500' }} text-lg font-medium hover:underline">About
-                     me</a>
-             </li>
-             <li class="hover:scale-105">
-                 <a href="/blog"
-                     class="{{ $title === 'Blog' ? 'text-slate-700' : 'text-slate-500' }} text-lg font-medium hover:underline">My
-                     blog</a>
-             </li>
+                     class="{{ $title === 'All Posts' ? 'text-slate-700' : 'text-slate-500' }} text-lg font-medium hover:underline">Posts</a>
+             </li>        
              <li class="hover:scale-105">
                  <a href="/categories"
                      class="{{ $title === 'Post Categories' ? 'text-slate-700' : 'text-slate-500' }} text-lg font-medium hover:underline">Categories</a>
              </li>
+             <li class="hover:scale-105">
+                <a href="/dashboard"
+                    class="{{ $title === 'Post Categories' ? 'text-slate-700' : 'text-slate-500' }} text-lg font-medium hover:underline">Manage posts</a>
+            </li>
              @auth
                  <li class="hover:scale-105">
                      <button type="button"

@@ -21,7 +21,7 @@
             {{ session('loginError') }}
         </small>
     @endif
-    <h2 class="text-3xl font-bold text-center text-slate-700">Please Login First</h2>
+    <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-center text-slate-700">Please Login First</h2>
     <main class="flex items-center justify-center">
         <form action="/login" method="post" class="max-w-xl flex flex-col w-3/4">
             @csrf
@@ -43,8 +43,8 @@
                 class="sm:text-lg md:text-xl mt-8 w-full bg-slate-700 text-slate-100 rounded-lg p-2 font-bold hover:bg-slate-900">Login</button>
         </form>
     </main>
-    <small class="block text-center mt-2 text-base">Don't have any account yet? <a href="/register"
-            class="underline">register here</a></small>
+    <p class="text-base sm:text-lg md:text-xl block text-center mt-2">Don't have any account yet? <a href="/register"
+            class="underline">register here</a></p>
 </body>
 
 </html>

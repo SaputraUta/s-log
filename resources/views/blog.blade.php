@@ -2,7 +2,7 @@
 @section('container')
     <div class="mx-20">
         <h3 class="text-2xl font-bold text-slate-700">{{ $title }}</h3>
-        <form action="/blog" class="my-3">
+        <form action="/" class="my-3">
             @if (request('category'))
                 <input type="hidden" name="category" value="{{ request('category') }}" />
             @endif
@@ -28,9 +28,9 @@
                         @endif
                         <h2 class="text-xl font-medium text-slate-700 hover:underline"><a
                                 href="/posts/{{ $posts[0]->slug }}">{{ $posts[0]->title }}</a></h2>
-                        <p class="text-sm font-light">By. <a href="/blog?user={{ $posts[0]->user->username }}"
+                        <p class="text-sm font-light">By. <a href="/?user={{ $posts[0]->user->username }}"
                                 class="underline">{{ $posts[0]->user->name }}</a> in <a
-                                href="/blog?category={{ $posts[0]->category->slug }}"
+                                href="/?category={{ $posts[0]->category->slug }}"
                                 class="underline">{{ $posts[0]->category->name }}</a>
                             {{ $posts[0]->created_at->diffForHumans() }}</p>
                         <p class="mt-5 text-base text-slate-700">{{ $posts[0]->excerpt }}</p>
@@ -55,9 +55,9 @@
                                 @endif
                                 <h2 class="text-lg font-medium text-slate-700 hover:underline line-clamp-1"><a
                                         href="/posts/{{ $post->slug }}">{{ $post->title }}</a></h2>
-                                <p class="text-xs font-light">By. <a href="/blog?user={{ $post->user->username }}"
+                                <p class="text-xs font-light">By. <a href="/?user={{ $post->user->username }}"
                                         class="underline">{{ $post->user->name }}</a> in <a
-                                        href="/blog?category={{ $post->category->slug }}"
+                                        href="/?category={{ $post->category->slug }}"
                                         class="underline">{{ $post->category->name }}</a>
                                     {{ $post->created_at->diffForHumans() }}</p>
                                 <p class="mt-5 text-sm text-slate-700">{{ $post->excerpt }}</p>

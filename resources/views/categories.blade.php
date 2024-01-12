@@ -7,7 +7,7 @@
                     <ul>
                         <li class="relative">
                             <img src="https://source.unsplash.com/500x400/?{{ $category->name }}" alt="{{ $category->name }}" class="w-full">
-                            <h3 class="text-lg underline absolute top-1 left-2 text-white p-1 font-medium tracking-widest bg-slate-700"><a href="/blog?category={{ $category->slug }}">{{ $category->name }}</a></h3>
+                            <h3 class="text-lg underline absolute top-1 left-2 text-white p-1 font-medium tracking-widest bg-slate-700"><a href="/?category={{ $category->slug }}">{{ $category->name }}</a></h3>
                         </li>
                     </ul>
             @endforeach

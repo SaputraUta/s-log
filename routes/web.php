@@ -20,17 +20,11 @@ use App\Http\Controllers\RegisterController;
 |
 */
 
-Route::get("/", function () {
-    return view('home', [
-        "title" => "Home"
-    ]);
-})->middleware('auth');
-
 Route::get("/about", function () {
     return view('about', ["name" => "Saputra Uta", "email" => "saputra.uta50@gmail.com", "image" => "saputra.jpg", "title" => "About"]);
 })->middleware('auth');
 
-Route::get("/blog", [PostController::class, 'index'])->middleware('auth');
+Route::get("/", [PostController::class, 'index'])->middleware('auth');
 
 Route::get('posts/{post:slug}', [PostController::class, 'getDetail'])->middleware('auth');
 
