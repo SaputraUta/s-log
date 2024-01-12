@@ -17,8 +17,15 @@
             <div class="w-full border-2 rounded-lg">
                 <div class="p-2 flex flex-col justify-between h-full">
                     <div>
-                        <img src="https://source.unsplash.com/1200x400/?{{ $posts[0]->category->name }}"
-                            alt="{{ $posts[0]->category->name }}" class="w-full">
+                        @if ($posts[0]->image)
+                            <div class="max-h-80 overflow-hidden flex items-center justify-center">
+                                <img class="mt-5" src="{{ asset('storage/' . $posts[0]->image) }}"
+                                    alt="{{ $posts[0]->category->name }}" class="object-cover">
+                            </div>
+                        @else
+                            <<img src="https://source.unsplash.com/1200x400/?{{ $posts[0]->category->name }}"
+                                alt="{{ $posts[0]->category->name }}" class="w-full">
+                        @endif
                         <h2 class="text-xl font-medium text-slate-700 hover:underline"><a
                                 href="/posts/{{ $posts[0]->slug }}">{{ $posts[0]->title }}</a></h2>
                         <p class="text-sm font-light">By. <a href="/blog?user={{ $posts[0]->user->username }}"
@@ -37,8 +44,15 @@
                     <article class="w-full h-full border-2 rounded-lg">
                         <div class="p-2 flex flex-col justify-between h-full">
                             <div>
-                                <img src="https://source.unsplash.com/500x400/?{{ $post->category->name }}"
-                                    alt="{{ $post->category->name }}" class="w-full">
+                                @if ($post->image)
+                                    <div class="flex items-center justify-center">
+                                        <img class="mt-5" src="{{ asset('storage/' . $post->image) }}"
+                                            alt="{{ $post->category->name }}" class="object-cover">
+                                    </div>
+                                @else
+                                    <img src="https://source.unsplash.com/500x400/?{{ $post->category->name }}"
+                                        alt="{{ $post->category->name }}" class="w-full">
+                                @endif
                                 <h2 class="text-lg font-medium text-slate-700 hover:underline line-clamp-1"><a
                                         href="/posts/{{ $post->slug }}">{{ $post->title }}</a></h2>
                                 <p class="text-xs font-light">By. <a href="/blog?user={{ $post->user->username }}"
@@ -57,7 +71,7 @@
     </div>
 @else
     <p class="text-center font-bold text-slate-700 mt-5">No post found.</p>
-@endif
+    @endif
 
-{{ $posts->links() }}
+    {{ $posts->links() }}
 @endsection

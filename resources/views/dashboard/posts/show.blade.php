@@ -19,8 +19,15 @@
                     Delete</button>
             </form>
         </div>
-        <img class="mt-5" src="https://source.unsplash.com/1200x400/?{{ $post->category->name }}"
-            alt="{{ $post->category->name }}">
+        @if ($post->image)
+            <div class="max-h-80 overflow-hidden">
+                <img class="mt-5" src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->category->name }}" class="object-cover">
+            </div>
+        @else
+            <img class="mt-5" src="https://source.unsplash.com/1200x400/?{{ $post->category->name }}"
+                alt="{{ $post->category->name }}">
+        @endif
+
         <p class="text-base text-slate-700 mt-5">
             {!! $post['body'] !!}
         </p>
