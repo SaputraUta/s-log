@@ -5,7 +5,8 @@
         <h1 class="text-4xl font-bold tracking-wide text-slate-700">Create new post</h1>
     </div>
     <div class="mx-4 sm:mx-8 md:mx-16 lg:mx-24 xl:mx-32 mt-10">
-        <form action="/dashboard/posts" method="post" class="flex flex-col gap-3 w-full md:w-1/2 " enctype="multipart/form-data">
+        <form action="/dashboard/posts" method="post" class="flex flex-col gap-3 w-full md:w-1/2 "
+            enctype="multipart/form-data">
             @csrf
             <div class="w-full flex flex-col gap-1">
                 <input type="text" name="title" id="title"
@@ -36,8 +37,10 @@
             </div>
             <div class="w-full flex flex-col gap-1">
                 <label for="image" class="text-slate-700">Choose image</label>
+                <img class="img-preview w-full max-h-80 overflow-hidden">
                 <input type="file" name="image" id="image"
-                    class="border-2 border-slate-700 text-slate-700 p-2 rounded-lg placeholder:text-slate-700"/>
+                    class="border-2 border-slate-700 text-slate-700 p-2 rounded-lg placeholder:text-slate-700"
+                    onchange="imagePreview()" />
                 @error('image')
                     <p class="text-red-500">{{ $message }}</p>
                 @enderror
@@ -61,5 +64,23 @@
                 .then(response => response.json())
                 .then(data => slug.value = data.slug)
         });
+
+        document.addEventListener('trix-file-accept', function(e) {
+            e.preventDefault();
+        })
+
+        function imagePreview() {
+            const image = document.querySelector('#image');
+            const imgPreview = document.querySelector('.img-preview');
+
+            imgPreview.style.display = 'block';
+
+            const oFReader = new FileReader();
+            oFReader.readAsDataURL(image.files[0]);
+
+            oFReader.onload = function(oFREvent) {
+                imgPreview.src = oFREvent.target.result;
+            }
+        }
     </script>
 @endsection
