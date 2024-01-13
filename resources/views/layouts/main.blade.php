@@ -20,12 +20,18 @@
             $('.openModal').on('click', function(e) {
                 $('#logoutModal').removeClass('hidden');
             });
-
+    
             $('.closeModal').on('click', function(e) {
                 $('#logoutModal').addClass('hidden');
             });
+    
+            $('.openNav').on('click', function(e) {
+                $('#navbarModal').toggleClass('hidden');
+                $(this).toggleClass('openNav closeNav');
+            });
         });
     </script>
+    
 </body>
 
 </html>
