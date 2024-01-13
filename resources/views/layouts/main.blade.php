@@ -10,8 +10,8 @@
     @vite('resources/css/app.css')
 </head>
 
-<body class="bg-slate-100">
-    <div class="w-full bg-slate-200">
+<body class="bg-slate-200">
+    <div class="w-full bg-slate-300">
         @include('partials.navbar')
     </div>
     <div class="mt-5">@yield('container')</div>

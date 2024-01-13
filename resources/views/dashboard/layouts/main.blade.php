@@ -21,9 +21,9 @@
 
 <body>
     @include('dashboard.layouts.header')
-    <div class="flex min-h-screen w-full">
+    <div class="md:flex min-h-screen w-full">
         @include('dashboard.layouts.sidebar')
-        <main class="flex-1 w-full flex flex-col mt-10 mb-10">
+        <main class="flex-1 w-full flex flex-col md:mt-10 mb-10">
             @yield('container')
         </main>
     </div>

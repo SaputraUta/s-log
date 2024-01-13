@@ -1,16 +1,16 @@
 @extends('dashboard.layouts.main')
 
 @section('container')
-    <div class="mx-4 sm:mx-8 md:mx-16 lg:mx-24 xl:mx-32 mt-16">
-        <h1 class="text-4xl font-bold tracking-wide text-slate-700">Create new post</h1>
+    <div class="mx-4 sm:mx-8 md:mx-16 lg:mx-24 xl:mx-32 mt-5 md:mt-16">
+        <h1 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold tracking-wide text-slate-700">Create new post</h1>
     </div>
-    <div class="mx-4 sm:mx-8 md:mx-16 lg:mx-24 xl:mx-32 mt-10">
-        <form action="/dashboard/posts" method="post" class="flex flex-col gap-3 w-full md:w-1/2 "
+    <div class="mx-4 sm:mx-8 md:mx-16 lg:mx-24 xl:mx-32 mt-5 md:mt-10">
+        <form action="/dashboard/posts" method="post" class="flex flex-col gap-3 w-full xl:w-1/2"
             enctype="multipart/form-data">
             @csrf
             <div class="w-full flex flex-col gap-1">
                 <input type="text" name="title" id="title"
-                    class="border-2 border-slate-700 text-slate-700 p-2 rounded-lg placeholder:text-slate-700"
+                    class="border-2 border-slate-700 text-slate-700 p-2 rounded-lg placeholder:text-slate-700 text-sm sm:text-base"
                     placeholder="Title" value="{{ old('title') }}" required />
                 @error('title')
                     <p class="text-red-500">{{ $message }}</p>
@@ -18,14 +18,14 @@
             </div>
             <div class="w-full flex flex-col gap-1">
                 <input type="text" name="slug" id="slug"
-                    class="border-2 border-slate-700 text-slate-700 p-2 rounded-lg placeholder:text-slate-700"
+                    class="border-2 border-slate-700 text-slate-700 p-2 rounded-lg placeholder:text-slate-700 text-sm sm:text-base"
                     placeholder="Slug" value="{{ old('slug') }}" readonly required />
                 @error('slug')
                     <p class="text-red-500">{{ $message }}</p>
                 @enderror
             </div>
             <div class="w-full flex flex-col gap-1">
-                <select name="category_id" id="category_id" class="border-2 border-slate-700 text-slate-700 p-2 rounded-lg">
+                <select name="category_id" id="category_id" class="border-2 border-slate-700 text-slate-700 p-2 rounded-lg text-sm sm:text-base">
                     @foreach ($categories as $category)
                         @if (old('category_id') == $category->id)
                             <option value="{{ $category->id }}" selected>{{ $category->name }}</option>
@@ -36,23 +36,23 @@
                 </select>
             </div>
             <div class="w-full flex flex-col gap-1">
-                <label for="image" class="text-slate-700">Choose image</label>
+                <label for="image" class="text-slate-700 text-sm sm:text-base">Choose image</label>
                 <img class="img-preview w-full max-h-80 overflow-hidden">
                 <input type="file" name="image" id="image"
-                    class="border-2 border-slate-700 text-slate-700 p-2 rounded-lg placeholder:text-slate-700"
+                    class="border-2 border-slate-700 text-slate-700 p-2 rounded-lg placeholder:text-slate-700 text-sm sm:text-base"
                     onchange="imagePreview()" />
                 @error('image')
                     <p class="text-red-500">{{ $message }}</p>
                 @enderror
             </div>
             <div class="w-full flex flex-col gap-1">
-                <input id="body" type="hidden" name="body" value="{{ old('body') }}">
+                <input id="body" type="hidden" name="body" value="{{ old('body') }}" class="text-sm sm:text-base">
                 <trix-editor input="body"></trix-editor>
                 @error('body')
                     <p class="text-red-500">{{ $message }}</p>
                 @enderror
             </div>
-            <button type="submit" class="w-full rounded-lg bg-slate-700 text-white font-bold p-2">Create Post</button>
+            <button type="submit" class="w-full rounded-lg bg-slate-700 text-white font-bold p-2 text-sm sm:text-base">Create Post</button>
         </form>
     </div>
 
