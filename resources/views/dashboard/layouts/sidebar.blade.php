@@ -5,6 +5,11 @@
                     <a href="/dashboard/posts" class="flex items-center gap-1"><span>@include('feather::file-text')</span>My
                         Posts</a>
                 </li>
+                <li
+                    class="text-xl font-medium 'text-slate-100' hover:bg-slate-800 hover:cursor-pointer p-4">
+                    <a href="/" class="flex items-center gap-1"><span>@include('feather::file-text')</span>
+                        All Posts</a>
+                </li>
             </ul>
             @can('admin')
             <h6 class="text-lg font-bold text-slate-400 ml-4 mt-5">Administrator</h6>

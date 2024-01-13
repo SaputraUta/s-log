@@ -14,7 +14,7 @@
                      class="{{ $title === 'Post Categories' ? 'text-slate-700' : 'text-slate-500' }} text-lg font-medium hover:underline">Categories</a>
              </li>
              <li class="hover:scale-105">
-                <a href="/dashboard"
+                <a href="/dashboard/posts"
                     class="{{ $title === 'Post Categories' ? 'text-slate-700' : 'text-slate-500' }} text-lg font-medium hover:underline">Manage posts</a>
             </li>
              @auth
