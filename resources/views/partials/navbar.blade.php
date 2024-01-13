@@ -4,7 +4,7 @@
          <a href="/" class="text-4xl font-semibold tracking-widest text-slate-700">S'log</a>
      </div>
      <nav>
-         <ul class="list-none flex items-center gap-16">
+         <ul class="list-none flex items-center gap-8 lg:gap-16">
              <li class="hover:scale-105">
                  <a href="/"
                      class="{{ $title === 'All Posts' ? 'text-slate-700' : 'text-slate-500' }} text-lg font-medium hover:underline">Posts</a>
@@ -15,7 +15,7 @@
              </li>
              <li class="hover:scale-105">
                  <a href="/dashboard/posts"
-                     class="{{ $title === 'Post Categories' ? 'text-slate-700' : 'text-slate-500' }} text-lg font-medium hover:underline">Manage
+                     class="{{ $title === 'Dashboard' ? 'text-slate-700' : 'text-slate-500' }} text-lg font-medium hover:underline">Manage
                      posts</a>
              </li>
              @auth

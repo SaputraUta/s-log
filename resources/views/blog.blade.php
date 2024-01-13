@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @section('container')
     <div class="mx-10 md:mx-20">
-        <h3 class="text-lg sm:text-xl md:text-2xl font-bold text-slate-700">{{ $title }}</h3>
+        <h2 class="text-lg sm:text-xl md:text-2xl font-bold text-slate-700">{{ $title }}</h3>
         <form action="/" class="my-3">
             @if (request('category'))
                 <input type="hidden" name="category" value="{{ request('category') }}"
